@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './styles/App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from "./Login/login";
-import Register from "./Login/register";
-import ForgotPassword from "./Login/forgotPassword";
+import Login from "./Components/Auth/login";
+import Register from "./Components/Auth/register";
+import ForgotPassword from "./Components/Auth/forgotPassword";
+import Dashboard from "./Components/Dashboard/dashboard";
 import './styles/auth.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
     </>
