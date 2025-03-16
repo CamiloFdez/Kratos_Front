@@ -1,60 +1,54 @@
-/* Estilos generales */
+/* Global styles */
 body {
     background-color: #e3f2fd;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+  
+  /* Dashboard container */
+  .dashboard-container {
+    width: 100vw;
     height: 100vh;
-}
-
-/* Contenedor principal del dashboard */
-.dashboard-container {
-    max-width: 1200px;
-    width: 90%;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-/* Estilos del calendario */
-.calendar-container {
-    width: 100%;
-    max-height: 600px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-/* Estilos de FullCalendar */
-.fc {
+  }
+  
+  /* Layout para botones y calendario */
+  .dashboard-content {
+    display: flex;
+    width: 90%;
+    height: 80vh;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Contenedor de botones (columna izquierda) */
+  .button-container {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Contenedor del calendario (columna derecha) */
+  .calendar-wrapper {
+    width: 70%;
+  }
+  
+  /* Estilos de FullCalendar */
+  .fc {
     background-color: #fff;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilos de la barra superior del calendario */
-.fc-header-toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-/* Contenedor de los botones */
-.button-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-
-/* Botones del dashboard */
-.dashboard-button {
+  }
+  
+  /* Botones */
+  .dashboard-button {
     padding: 10px 20px;
     background-color: #1e88e5;
     color: white;
@@ -64,23 +58,22 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.dashboard-button:hover {
+  }
+  
+  .dashboard-button:hover {
     background-color: #1565c0;
-}
-
-/* Botón de cerrar sesión */
-.logout-button {
+  }
+  
+  .logout-button {
     background-color: #d32f2f;
-}
-
-.logout-button:hover {
+  }
+  
+  .logout-button:hover {
     background-color: #b71c1c;
-}
-
-/* Formulario de reservas */
-.reservation-form {
+  }
+  
+  /* Modal para formularios e información */
+  .modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -92,105 +85,64 @@ body {
     z-index: 1000;
     width: 90%;
     max-width: 400px;
-}
-
-.reservation-form h3 {
+  }
+  
+  .modal h3 {
     margin-top: 0;
-}
-
-.reservation-form label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.reservation-form input,
-.reservation-form select {
+  }
+  
+  .modal input,
+  .modal select {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-.reservation-form button {
+  }
+  
+  .modal button {
     margin-top: 10px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-#submit-reservation {
+  }
+  
+  .modal button:first-of-type {
     background-color: #007bff;
     color: white;
-}
-
-#submit-reservation:hover {
+  }
+  
+  .modal button:first-of-type:hover {
     background-color: #0056b3;
-}
-
-#cancel-reservation {
+  }
+  
+  .modal button:last-of-type {
     background-color: #dc3545;
     color: white;
-}
-
-#cancel-reservation:hover {
+  }
+  
+  .modal button:last-of-type:hover {
     background-color: #c82333;
-}
-
-/* Información de contacto y laboratorios */
-.contact-info-container,
-.labs-info-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    width: 90%;
-    max-width: 400px;
-}
-
-.contact-info h3,
-.labs-info h3 {
-    margin-top: 0;
-}
-
-.labs-list {
+  }
+  
+  /* Estilos para la lista de laboratorios (opcional) */
+  .modal ul {
     list-style: none;
     padding: 0;
-}
-
-.labs-list li {
+  }
+  
+  .modal ul li {
     padding: 10px;
     border: 1px solid #ccc;
     margin-top: 5px;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
-}
-
-.labs-list li:hover {
+  }
+  
+  .modal ul li:hover {
     background-color: #e3f2fd;
-}
+  }
+  
 
-/* Botón de cerrar */
-#close-contact-info,
-#close-labs-info {
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#close-contact-info:hover,
-#close-labs-info:hover {
-    background-color: #b71c1c;
-}
