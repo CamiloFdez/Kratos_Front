@@ -1,12 +1,86 @@
-# React + Vite
+# Kratos Front
+Este es el frontend de nuestra aplicación Kratos, diseñada para gestionar laboratorios, reservas, horarios y usuarios. Está desarrollada con React.js y utiliza Vite para la gestión del entorno de desarrollo.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Requisitos
+- Requisitos (#requisitos)
+- Configuración (#configuración)
+- Estructura del Proyecto (#estructura-del-proyecto)
+- Ejecución (#ejecución)
+- Integrantes (#integrantes)
 
-Currently, two official plugins are available:
+# Requisitos
+Para ejecutar el proyecto, necesitamos:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Node.js (versión 18 o superior).
+✅ npm (instalado con Node.js).
+✅ Vite (para el entorno de desarrollo).
+✅ React.js (para la interfaz de usuario).
+✅ Un IDE como Visual Studio Code, IntelliJ IDEA o WebStorm.
 
-## Expanding the ESLint configuration
+# Configuración
+1. Clonar el repositorio mediante la terminal si se tiene instalado github o desde git bash a cualquier carpeta existente en su portatil:
+```text
+git clone https://github.com/tuusuario/Kratos_Front.git
+cd Kratos_Front
+```
+2. Abrimos desde el editor de codigo que queramos en este caso Visual Studio Code y instalamos las dependecias necesarias desde el terminal del mismo dentro del proyecto:
+```text
+npm install
+npm install react-router-dom
+```
+3. Ejecutamos la aplicacion en modo desarrollo mediante lo siguiente:
+```text
+npm run dev
+```
+4. Lo abrimos desde el navegador, Por defecto, la aplicación se ejecutará en:
+🔗 http://localhost:5173/
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Estructura del proyecto
+El proyecto esta estructurado de esta manera:
+```text
+Kratos_Front
+├── node_modules          # Dependencias del proyecto (no se sube a GitHub)
+├── public                # Archivos estáticos públicos
+│   ├── vite.svg
+├── src                   # Código fuente principal
+│   ├── assets            # Recursos estáticos como imágenes
+│   │   ├── react.svg
+│   ├── Components        # Componentes de la aplicación
+│   │   ├── Auth          # Módulo de autenticación
+│   │   │   ├── forgotPassword.jsx
+│   │   │   ├── login.jsx
+│   │   │   ├── register.jsx
+│   │   ├── Dashboard     # Panel principal
+│   │   │   ├── dashboard.jsx
+│   │   ├── Login         # Página de login
+│   │   │   ├── login.jsx
+│   ├── styles           # Estilos CSS de la aplicación
+│   │   ├── App.css
+│   │   ├── auth.css
+│   │   ├── dashboard.css
+│   │   ├── index.css
+│   ├── App.jsx          # Componente raíz de React
+│   ├── main.jsx         # Punto de entrada de la aplicación
+├── .gitignore           # Archivos a ignorar en Git
+├── eslint.config.js     # Configuración de ESLint
+├── index.html           # Archivo HTML principal
+├── package-lock.json           
+├── package.json           
+├── README.md
+```
+
+# Ejecución:
+Ejecutamos la aplicacion en modo desarrollo mediante lo siguiente:
+```text
+npm run dev
+```
+Para generar la versión de producción:
+```text
+npm run build
+```
+
+# Integrantes
+    - Andrés Jacobo Sepúlveda Sánchez
+    - Sebastian Julian Villarraga Guerrero
+    - Camilo Andrez Fernandez Diaz
+    - Roger Alexander Rodriguez
