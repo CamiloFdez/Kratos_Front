@@ -11,11 +11,11 @@ Este es el frontend de nuestra aplicación Kratos, diseñada para gestionar labo
 # Requisitos
 Para ejecutar el proyecto, necesitamos:
 
-✅ Node.js (versión 18 o superior).
-✅ npm (instalado con Node.js).
-✅ Vite (para el entorno de desarrollo).
-✅ React.js (para la interfaz de usuario).
-✅ Un IDE como Visual Studio Code, IntelliJ IDEA o WebStorm.
+- Node.js (versión 18 o superior).
+- npm (instalado con Node.js).
+- Vite (para el entorno de desarrollo).
+- React.js (para la interfaz de usuario).
+- Un IDE como Visual Studio Code, IntelliJ IDEA o WebStorm.
 
 # Configuración
 1. Clonar el repositorio mediante la terminal si se tiene instalado github o desde git bash a cualquier carpeta existente en su portatil:
