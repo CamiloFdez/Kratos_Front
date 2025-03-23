@@ -1,14 +1,14 @@
 # Kratos Front
 Este es el frontend de nuestra aplicación Kratos, diseñada para gestionar laboratorios, reservas, horarios y usuarios. Está desarrollada con React.js y utiliza Vite para la gestión del entorno de desarrollo.
 
-# Requisitos
-- Requisitos (#requisitos)
-- Configuración (#configuración)
-- Estructura del Proyecto (#estructura-del-proyecto)
-- Ejecución (#ejecución)
-- Integrantes (#integrantes)
+## *Requisitos*
+- [Requisitos](#requisitos)
+- [Configuración](#configuración)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Ejecución](#ejecución)
+- [Integrantes](#integrantes)
 
-# Requisitos
+## *Requisitos*
 Para ejecutar el proyecto, necesitamos:
 
 - Node.js (versión 18 o superior).
@@ -17,7 +17,7 @@ Para ejecutar el proyecto, necesitamos:
 - React.js (para la interfaz de usuario).
 - Un IDE como Visual Studio Code, IntelliJ IDEA o WebStorm.
 
-# Configuración
+## *Configuración*
 1. Clonar el repositorio mediante la terminal si se tiene instalado github o desde git bash a cualquier carpeta existente en su portatil:
 ```text
 git clone https://github.com/tuusuario/Kratos_Front.git
@@ -35,7 +35,7 @@ npm run dev
 4. Lo abrimos desde el navegador, Por defecto, la aplicación se ejecutará en:
 🔗 http://localhost:5173/
 
-# Estructura del proyecto
+## *Estructura del proyecto*
 El proyecto esta estructurado de esta manera:
 ```text
 Kratos_Front
@@ -69,7 +69,7 @@ Kratos_Front
 ├── README.md
 ```
 
-# Ejecución:
+## *Ejecución:*
 Ejecutamos la aplicacion en modo desarrollo mediante lo siguiente:
 ```text
 npm run dev
@@ -79,7 +79,7 @@ Para generar la versión de producción:
 npm run build
 ```
 
-# Integrantes
+## *Integrantes*
     - Andrés Jacobo Sepúlveda Sánchez
     - Sebastian Julian Villarraga Guerrero
     - Camilo Andrez Fernandez Diaz
