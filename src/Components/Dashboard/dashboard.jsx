@@ -35,6 +35,9 @@ const Dashboard = () => {
           <button className="dashboard-button" onClick={() => setShowLabs(true)}>
             Laboratorios
           </button>
+          <button className="dashboard-button" onClick={() => navigate("/analytics")}>
+            Ver Analíticas
+          </button>
           <button className="logout-button" onClick={() => navigate("/register")}>
             Cerrar sesión
           </button>
