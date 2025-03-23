@@ -6,6 +6,7 @@ import Register from "./Components/Auth/register";
 import ForgotPassword from "./Components/Auth/forgotPassword";
 import Dashboard from "./Components/Dashboard/dashboard";
 import './styles/auth.css';
+import Analytics from './Components/Dashboard/analytics';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/analytics" element={<Analytics />} />
         </Routes>
       </Router>
     </>
