@@ -91,10 +91,20 @@ npm run build
 
 ## *Fotos de la app*
 1. Login:
-
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Login.png)
 2. Registrarse
-
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Registrarse.png)
 3. Olvide la contraseña:
-
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Olvideco.png)
 4. Dashboard:
- 
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Dashboard.png)
+5. Nueva reserva:
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Nuevareserva.png)
+6. Contactanos:
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Contactanos.png)
+7. Laboratorios:
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Labs.png)
+8. Ver analiticas:
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Analiticas1.png)
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Analiticas2.png)
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Analiticas3.png)
