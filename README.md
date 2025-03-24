@@ -7,6 +7,7 @@ Este es el frontend de nuestra aplicación Kratos, diseñada para gestionar labo
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Ejecución](#ejecución)
 - [Integrantes](#integrantes)
+- [Fotos de la app](#fotos-de-la-app)
 
 ## *Requisitos*
 Para ejecutar el proyecto, necesitamos:
@@ -27,6 +28,9 @@ cd Kratos_Front
 ```text
 npm install
 npm install react-router-dom
+npm install chartjs
+npm install react-chartjs-2 chart.js
+npm install axios
 ```
 3. Ejecutamos la aplicacion en modo desarrollo mediante lo siguiente:
 ```text
@@ -51,10 +55,10 @@ Kratos_Front
 │   │   │   ├── login.jsx
 │   │   │   ├── register.jsx
 │   │   ├── Dashboard     # Panel principal
+│   │   │   ├── analytics.jsx
 │   │   │   ├── dashboard.jsx
-│   │   ├── Login         # Página de login
-│   │   │   ├── login.jsx
 │   ├── styles           # Estilos CSS de la aplicación
+│   │   ├── analytics.css
 │   │   ├── App.css
 │   │   ├── auth.css
 │   │   ├── dashboard.css
@@ -84,3 +88,13 @@ npm run build
     - Sebastian Julian Villarraga Guerrero
     - Camilo Andrez Fernandez Diaz
     - Roger Alexander Rodriguez
+
+## *Fotos de la app*
+1. Login:
+
+2. Registrarse
+
+3. Olvide la contraseña:
+
+4. Dashboard:
+ 
