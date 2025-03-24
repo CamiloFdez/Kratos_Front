@@ -1,28 +1,33 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '/src/styles/auth.css';
+import axios from 'axios';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-        // Aquí se llamaría a la API de backend para validar credenciales
-        console.log('Login con:', email, password);
-        navigate("/dashboard");
-        // Simular validación de credenciales
-        // if (email === 'usuario@test.com' && password === '123456') {
-            // navigate('/dashboard'); // Redirige al dashboard
-        // } else {
-            // alert('Credenciales incorrectas');
-        // }
+    const handleLogin = async (e) => {
+      e.preventDefault();
+      setError('');
+
+      try {
+          const response = await axios.post('http://localhost:8080/usuarios/login', { email, password });
+          console.log('Login exitoso:', response.data);
+          localStorage.setItem('user', JSON.stringify(response.data)); 
+          navigate("/dashboard");
+      } catch (error) {
+          console.error('Error en login:', error);
+          setError('Credenciales incorrectas. Inténtalo de nuevo.');
+      }
     };
 
     return (
         <div className="auth-container">
           <h2>Iniciar Sesión</h2>
+          {error && <p className="error-message">{error}</p>} 
           <form onSubmit={handleLogin}>
             <input
               type="email"
