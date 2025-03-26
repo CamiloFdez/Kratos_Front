@@ -26,6 +26,7 @@ cd Kratos_Front
 ```
 2. Abrimos desde el editor de codigo que queramos en este caso Visual Studio Code y instalamos las dependecias necesarias desde el terminal del mismo dentro del proyecto:
 ```text
+npm create vite@latest nameproyecto --template react
 npm install
 npm install react-router-dom
 npm install chartjs
