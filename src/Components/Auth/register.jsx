@@ -20,7 +20,7 @@ const Register = () => {
         }
         
         try {
-            const response = await axios.post('http://localhost:8080/usuarios/login', { name, email, password });
+            const response = await axios.post('http://localhost:8080/usuarios', { name, email, password });
             console.log('Registro exitoso:', response.data);
             alert("Cuenta creada. Ahora inicia sesión.");
             navigate('/');
