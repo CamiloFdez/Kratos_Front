@@ -6,7 +6,7 @@ import axios from 'axios';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState('  ');
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -17,7 +17,11 @@ const Login = () => {
           const response = await axios.post('http://localhost:8080/usuarios/login', { email, password });
           console.log('Login exitoso:', response.data);
           localStorage.setItem('user', JSON.stringify(response.data)); 
-          navigate("/dashboard");
+          if (response.data.rol === "ADMIN") {
+            navigate("/dashboard");
+          } else {
+            navigate("/user-dashboard");
+          }
       } catch (error) {
           console.error('Error en login:', error);
           setError('Credenciales incorrectas. Inténtalo de nuevo.');
