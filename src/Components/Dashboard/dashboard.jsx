@@ -21,9 +21,9 @@ const Dashboard = () => {
       .then(response => {
         const formattedEvents = response.data.map(reserva => ({
           id: reserva.id,
-          title: reserva.proposito, // Se usará el propósito como título
+          title: reserva.proposito, 
           start: reserva.fechaHora,
-          end: new Date(new Date(reserva.fechaHora).getTime() + 60 * 60 * 1000), // Duración de 1 hora
+          end: new Date(new Date(reserva.fechaHora).getTime() + 60 * 60 * 1000), 
         }));
         setEvents(formattedEvents);
       })
@@ -183,12 +183,10 @@ const ReservationForm = ({ onClose, onAddEvent }) => {
 };
 
 const ModifyReservationForm = ({ onClose, onUpdateReserva, initialReserva }) => {
-  // Campo editable para ingresar la fecha/hora de la reserva que se quiere modificar
   const [fechaHoraActual, setFechaHoraActual] = useState(
     initialReserva ? initialReserva.fechaHora.substring(0, 16) : ""
   );
 
-  // Nuevo campo para la nueva fecha/hora a actualizar
   const [newFechaHora, setNewFechaHora] = useState("");
 
   const [newTitle, setNewTitle] = useState(initialReserva ? initialReserva.proposito : "");
@@ -200,11 +198,10 @@ const ModifyReservationForm = ({ onClose, onUpdateReserva, initialReserva }) => 
 
       const updatedReserva = {
         proposito: newTitle,
-        fechaHora: fullNewFechaHora, // Nueva fecha/hora ingresada
+        fechaHora: fullNewFechaHora, 
         prioridad: parseInt(newPriority, 10),
       };
 
-      // Se usa la fecha ingresada en "Fecha y hora actual" para encontrar la reserva y actualizarla
       onUpdateReserva(fechaHoraActual, updatedReserva);
     } else {
       alert("Completa todos los campos y asegúrate de que la prioridad esté entre 1 y 5.");
@@ -219,7 +216,7 @@ const ModifyReservationForm = ({ onClose, onUpdateReserva, initialReserva }) => 
       <input
         type="datetime-local"
         value={fechaHoraActual}
-        onChange={(e) => setFechaHoraActual(e.target.value)} // Ahora puedes editarlo
+        onChange={(e) => setFechaHoraActual(e.target.value)} 
       />
 
       <label>Nueva fecha y hora:</label>
