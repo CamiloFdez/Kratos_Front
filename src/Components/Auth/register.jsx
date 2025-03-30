@@ -140,7 +140,7 @@ const Register = () => {
                                 <button 
                                     type="button" 
                                     className="btn btn-secondary"
-                                    onClick={() => navigate('/login')}
+                                    onClick={() => navigate('/')}
                                 >
                                     Iniciar sesión
                                 </button>
