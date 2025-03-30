@@ -5,6 +5,227 @@
   --light: #f8f9fa;
   --dark: #2c3e50;
   --error: #e74c3c;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f0f4f8;
+  color: var(--dark);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Contenedor principal mejorado */
+.dashboard-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+.dashboard-container h1 {
+  color: var(--primary);
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--primary-light);
+  margin-bottom: 0;
+}
+
+/* Layout mejor equilibrado */
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  height: calc(100vh - 100px);
+}
+
+/* Panel de botones mejor posicionado */
+.button-panel {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 220px;
+}
+
+/* Botones mejorados */
+.dashboard-button {
+  padding: 0.9rem 1.2rem;
+  background: var(--primary-light);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.dashboard-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.6s;
+  z-index: -1;
+}
+
+.dashboard-button:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.dashboard-button:hover::before {
+  left: 100%;
+}
+
+.dashboard-button:active {
+  transform: translateY(0);
+}
+
+.logout-button {
+  background: var(--error);
+  margin-top: 2rem;
+}
+
+/* Calendario más grande pero ajustado */
+.calendar-panel {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-wrapper {
+  flex: 1;
+  min-height: 0; /* Permite que el calendario se ajuste */
+}
+
+.fc {
+  height: 100% !important;
+}
+
+.fc-header-toolbar {
+  margin-bottom: 1rem !important;
+  padding: 0.8rem 0;
+}
+
+.fc-toolbar-title {
+  font-size: 1.3rem !important;
+  color: var(--primary);
+}
+
+.fc-button {
+  background: var(--primary-light) !important;
+  border: none !important;
+  padding: 0.5rem 1rem !important;
+  transition: var(--transition) !important;
+}
+
+.fc-button:hover {
+  background: var(--primary) !important;
+  transform: translateY(-2px) !important;
+}
+
+.fc-button:active {
+  transform: translateY(0) !important;
+}
+
+.fc-event {
+  background: var(--primary-light) !important;
+  border: none !important;
+  font-size: 0.85rem !important;
+  padding: 0.3rem 0.5rem !important;
+}
+
+/* Efecto de clic */
+@keyframes buttonClick {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.button-click {
+  animation: buttonClick 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .dashboard-content {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  
+  .button-panel {
+    padding: 1rem;
+  }
+  
+  .button-container {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 100%;
+    gap: 0.8rem;
+  }
+  
+  .dashboard-button {
+    padding: 0.8rem;
+  }
+  
+  .logout-button {
+    grid-column: span 4;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+:root {
+  --primary: #1a5276;
+  --primary-light: #2980b9;
+  --accent: #27ae60;
+  --light: #f8f9fa;
+  --dark: #2c3e50;
+  --error: #e74c3c;
   --gray: #e0e3e7;
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -323,42 +544,12 @@ body {
     grid-template-rows: auto 1fr;
   }
   
-  .button-panel {
-    padding: 1rem;
-  }
-  
-  .button-container {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 100%;
-    gap: 0.8rem;
-  }
-  
-  .logout-button {
-    grid-column: span 4;
-    margin-top: 1rem;
-  }
-  
-  .fc-toolbar.fc-header-toolbar {
-    padding: 0.8rem !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .dashboard-container {
-    padding: 1rem;
-  }
-  
   .button-container {
     grid-template-columns: repeat(3, 1fr);
   }
   
   .logout-button {
     grid-column: span 3;
-  }
-  
-  .fc-toolbar-title {
-    font-size: 1.1rem !important;
-    margin: 0.5rem 0 !important;
   }
 }
 
@@ -371,13 +562,8 @@ body {
     grid-column: span 2;
   }
   
-  .fc-toolbar.fc-header-toolbar {
-    flex-direction: column;
-    gap: 0.8rem;
+  .fc-toolbar-title {
+    font-size: 1.1rem !important;
   }
   
-  .fc-toolbar-chunk {
-    width: 100%;
-    justify-content: space-between;
-  }
-}
+
