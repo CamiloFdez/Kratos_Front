@@ -122,29 +122,29 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <h1>Panel de Reservas</h1>
       <div className="dashboard-content">
-        <div className="button-container">
+      <div className="button-container">
+        <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowModifyForm(true);}}>
+          Modificar una reserva
+        </button>
+        <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowDeleteForm(true);}}>
+          Eliminar una reserva
+        </button>
         <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
-            Modifica una reserva
-          </button>
-          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
-            Elimina una reserva
-          </button>
-          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
-            Haz tu reserva
-          </button>
-          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
-            Contáctanos
-          </button>
-          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
-            Laboratorios
-          </button>
-          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
-            Ver Analíticas
-          </button>
-          <button className="logout-button" onClick={() => navigate("/register")}>
-            Cerrar sesión
-          </button>
-        </div>
+          Haz tu reserva
+        </button>
+        <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowContact(true);}}>
+          Contáctanos
+        </button>
+        <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowLabs(true);}}>
+          Laboratorios
+        </button>
+        <button className="dashboard-button" onClick={(e) => {animateButton(e); navigate("/analytics");}}>
+          Ver Analíticas
+        </button>
+        <button className="logout-button" onClick={() => navigate("/")}>
+          Cerrar sesión
+        </button>
+      </div>
         <div className="calendar-wrapper">
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
