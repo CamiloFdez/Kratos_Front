@@ -54,11 +54,11 @@ const Register = () => {
     return (
         <div className="register-container">
             <div className="register-brand">
-            <img 
-                src="/Logoeci.png" 
-                alt="Logo Escuela Colombiana de Ingeniería"
-                className="university-logo"
-            />
+                <img 
+                    src="/Logoeci.png" 
+                    alt="Logo Escuela Colombiana de Ingeniería"
+                    className="university-logo"
+                />
                 <h1>ESCUELA COLOMBIANA DE INGENIERÍA JULIO GARAVITO</h1>
                 <p>UNIVERSIDAD</p>
             </div>
@@ -127,26 +127,26 @@ const Register = () => {
                             />
                         </div>
                         
-                        <button 
-                            type="submit" 
-                            className="btn-primary"
-                            disabled={isLoading}
-                        >
-                            {isLoading ? 'Registrando...' : 'Crear Cuenta'}
-                        </button>
+                        <div className="form-actions">
+                            <p className="account-question">¿Ya tienes una cuenta?</p>
+                            <div className="buttons-container">
+                                <button 
+                                    type="submit" 
+                                    className="btn btn-primary"
+                                    disabled={isLoading}
+                                >
+                                    {isLoading ? 'Registrando...' : 'Crear Cuenta'}
+                                </button>
+                                <button 
+                                    type="button" 
+                                    className="btn btn-secondary"
+                                    onClick={() => navigate('/login')}
+                                >
+                                    Iniciar sesión
+                                </button>
+                            </div>
+                        </div>
                     </form>
-                    
-                    <div className="form-links">
-                        <p>
-                            ¿Ya tienes una cuenta? {' '}
-                            <a 
-                                className="form-link" 
-                                onClick={() => navigate('/')}
-                            >
-                                Inicia sesión
-                            </a>
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
