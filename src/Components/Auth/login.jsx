@@ -6,7 +6,7 @@ import axios from 'axios';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('  ');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -29,32 +29,72 @@ const Login = () => {
     };
 
     return (
-        <div className="auth-container">
-          <h2>Iniciar Sesión</h2>
-          {error && <p className="error-message">{error}</p>} 
-          <form onSubmit={handleLogin}>
-            <input
-              type="email"
-              placeholder="Correo electrónico"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Contraseña"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">Ingresar</button>
-          </form>
-          <div className="auth-links">
-            <p onClick={() => navigate("/register")}>Registrarse</p>
-            <p onClick={() => navigate("/forgot-password")}>Olvidé mi contraseña</p>
+      <div className="login-container">
+        <div className="university-brand">
+          <img 
+            src="/Logoeci.png" 
+            alt="Logo Escuela Colombiana de Ingeniería"
+            className="university-logo"
+          />
+          <h1 className="university-title">
+            ESCUELA COLOMBIANA<br />
+            DE INGENIERÍA<br />
+            JULIO GARAVITO
+          </h1>
+          <p className="university-subtitle">UNIVERSIDAD</p>
+        </div>
+
+        <div className="login-form-container">
+          <div className="login-form">
+            <div className="form-header">
+              <h2>Iniciar Sesión</h2>
+              {error && <p className="error-message">{error}</p>}
+            </div>
+
+            <form onSubmit={handleLogin}>
+              <div className="form-group">
+                <label htmlFor="email">Correo electrónico</label>
+                <input
+                  id="email"
+                  type="email"
+                  className="form-control"
+                  placeholder="ejemplo@escuela.edu.co"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="password">Contraseña</label>
+                <input
+                  id="password"
+                  type="password"
+                  className="form-control"
+                  placeholder="••••••••"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+
+              <button type="submit" className="btn">
+                Ingresar
+              </button>
+
+              <div className="form-links">
+                <a className="form-link" onClick={() => navigate("/register")}>
+                  Registrarse
+                </a>
+                <a className="form-link" onClick={() => navigate("/forgot-password")}>
+                  Olvidé mi contraseña
+                </a>
+              </div>
+            </form>
           </div>
         </div>
-      );
-    };
+      </div>
+    )
+};
 
 export default Login;
