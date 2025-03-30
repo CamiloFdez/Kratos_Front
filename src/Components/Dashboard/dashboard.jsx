@@ -42,7 +42,7 @@ const Dashboard = () => {
     const reservaData = {
       id: crypto.randomUUID(),
       usuarioId: usuarioId,
-      laboratorio: { id: "1", nombre: "Laboratorio 1", ubicacion: "Edificio A", capacidad: 30 },
+      laboratorio: newEvent.laboratorio,
       fechaHora: `${newEvent.start}:00`,
       proposito: newEvent.title,  
       prioridad: newEvent.prioridad
@@ -65,19 +65,21 @@ const Dashboard = () => {
       });
   };
 
-  // Para actualizar una reserva
   const handleUpdateReserva = (fechaHora, updatedReserva) => {
     axios.put(`http://localhost:8080/reservas/${fechaHora}`, updatedReserva)
-      .then(response => {
-        const updatedEvents = events.map(event => 
-          event.id === fechaHora ? {
-            id: response.data.id,
-            title: response.data.proposito,
-            start: new Date(response.data.fechaHora),
-            end: new Date(new Date(response.data.fechaHora).getTime() + 60 * 60 * 1000),
-          } : event
-        );
-        setEvents(updatedEvents);
+      .then(() => {
+        axios.get("http://localhost:8080/reservas") 
+          .then(response => {
+            const formattedEvents = response.data.map(reserva => ({
+              id: reserva.id,
+              title: reserva.proposito,
+              start: new Date(reserva.fechaHora),
+              end: new Date(new Date(reserva.fechaHora).getTime() + 60 * 60 * 1000),
+            }));
+            setEvents(formattedEvents); 
+          })
+          .catch(error => console.error("Error al obtener las reservas", error));
+  
         setShowModifyForm(false);
       })
       .catch(error => {
@@ -86,11 +88,21 @@ const Dashboard = () => {
       });
   };
 
-  // Para eliminar una reserva
   const handleDeleteReserva = (fechaHora) => {
     axios.delete(`http://localhost:8080/reservas/${fechaHora}`)
       .then(() => {
-        setEvents(events.filter(event => event.id !== fechaHora));
+        axios.get("http://localhost:8080/reservas") 
+          .then(response => {
+            const formattedEvents = response.data.map(reserva => ({
+              id: reserva.id,
+              title: reserva.proposito,
+              start: new Date(reserva.fechaHora),
+              end: new Date(new Date(reserva.fechaHora).getTime() + 60 * 60 * 1000),
+            }));
+            setEvents(formattedEvents); 
+          })
+          .catch(error => console.error("Error al obtener las reservas", error));
+  
         setShowDeleteForm(false);
       })
       .catch(error => {
@@ -152,16 +164,24 @@ const Dashboard = () => {
 
 const ReservationForm = ({ onClose, onAddEvent }) => {
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
-  const [start, setStart] = useState("");
+  const [dateTime, setDateTime] = useState("");
   const [priority, setPriority] = useState(1);
+  const [laboratorios, setLaboratorios] = useState([]);
+  const [laboratorioSeleccionado, setLaboratorioSeleccionado] = useState("");
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/api/laboratorios/")
+      .then(response => setLaboratorios(response.data))
+      .catch(error => console.error("Error al obtener laboratorios:", error));
+  }, []);
 
   const handleSubmit = () => {
-    if (title && date && start && priority >= 1 && priority <= 5) {
+    if (title && dateTime && priority >= 1 && priority <= 5 && laboratorioSeleccionado) {
       const newEvent = {
-        title,  
-        start: `${date}T${start}`,
+        title,
+        start: dateTime,
         prioridad: parseInt(priority, 10),
+        laboratorio: laboratorios.find(lab => lab.id === laboratorioSeleccionado)
       };
       onAddEvent(newEvent);
     } else {
@@ -173,9 +193,14 @@ const ReservationForm = ({ onClose, onAddEvent }) => {
     <div className="modal">
       <h3>Nueva Reserva</h3>
       <input type="text" placeholder="Propósito de la reserva" value={title} onChange={(e) => setTitle(e.target.value)} />
-      <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-      <input type="time" value={start} onChange={(e) => setStart(e.target.value)} />
+      <input type="dateTime-local" value={dateTime} onChange={(e) => setDateTime(e.target.value)} />
       <input type="number" min="1" max="5" value={priority} onChange={(e) => setPriority(e.target.value)} placeholder="Prioridad (1-5)" />
+      <select value={laboratorioSeleccionado} onChange={(e) => setLaboratorioSeleccionado(e.target.value)} required>
+        <option value="">Seleccione un laboratorio</option>
+        {laboratorios.map(lab => (
+          <option key={lab.id} value={lab.id}>{lab.nombre} - {lab.ubicacion}</option>
+        ))}
+      </select>
       <button onClick={handleSubmit}>Agregar</button>
       <button onClick={onClose}>Cancelar</button>
     </div>
@@ -186,22 +211,27 @@ const ModifyReservationForm = ({ onClose, onUpdateReserva, initialReserva }) => 
   const [fechaHoraActual, setFechaHoraActual] = useState(
     initialReserva ? initialReserva.fechaHora.substring(0, 16) : ""
   );
-
-  const [newFechaHora, setNewFechaHora] = useState("");
-
+  const [newdateTime, setNewDateTime] = useState("");
   const [newTitle, setNewTitle] = useState(initialReserva ? initialReserva.proposito : "");
   const [newPriority, setNewPriority] = useState(initialReserva ? initialReserva.prioridad : 1);
+  const [laboratorios, setLaboratorios] = useState([]);
+  const [newLaboratorioSeleccionado, setNewLaboratorioSeleccionado] = useState("");
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/api/laboratorios/")
+      .then(response => setLaboratorios(response.data))
+      .catch(error => console.error("Error al obtener laboratorios:", error));
+  }, []);
 
   const handleUpdate = () => {
-    if (fechaHoraActual && newFechaHora && newTitle && newPriority >= 1 && newPriority <= 5) {
-      const fullNewFechaHora = newFechaHora.endsWith(":00") ? newFechaHora : `${newFechaHora}:00`;
-
+    if (fechaHoraActual && newdateTime && newTitle && newPriority >= 1 && newPriority <= 5 && newLaboratorioSeleccionado) {
+      const fullNewFechaHora = newdateTime;
       const updatedReserva = {
         proposito: newTitle,
-        fechaHora: fullNewFechaHora, 
+        fechaHora: fullNewFechaHora,
         prioridad: parseInt(newPriority, 10),
+        laboratorio: laboratorios.find(lab => lab.id === newLaboratorioSeleccionado)
       };
-
       onUpdateReserva(fechaHoraActual, updatedReserva);
     } else {
       alert("Completa todos los campos y asegúrate de que la prioridad esté entre 1 y 5.");
@@ -211,21 +241,18 @@ const ModifyReservationForm = ({ onClose, onUpdateReserva, initialReserva }) => 
   return (
     <div className="modal">
       <h3>Modificar Reserva</h3>
-
       <label>Fecha y hora actual de la reserva:</label>
       <input
         type="datetime-local"
         value={fechaHoraActual}
-        onChange={(e) => setFechaHoraActual(e.target.value)} 
+        onChange={(e) => setFechaHoraActual(e.target.value)}
       />
-
       <label>Nueva fecha y hora:</label>
       <input
-        type="datetime-local"
-        value={newFechaHora}
-        onChange={(e) => setNewFechaHora(e.target.value)}
+        type="dateTime-local"
+        value={newdateTime}
+        onChange={(e) => setNewDateTime(e.target.value)}
       />
-
       <input
         type="text"
         placeholder="Nuevo propósito"
@@ -240,6 +267,13 @@ const ModifyReservationForm = ({ onClose, onUpdateReserva, initialReserva }) => 
         onChange={(e) => setNewPriority(e.target.value)}
         placeholder="Nueva prioridad (1-5)"
       />
+      <label>Nuevo Laboratorio:</label>
+      <select value={newLaboratorioSeleccionado} onChange={(e) => setNewLaboratorioSeleccionado(e.target.value)} required>
+        <option value="">Seleccione un laboratorio</option>
+        {laboratorios.map(lab => (
+          <option key={lab.id} value={lab.id}>{lab.nombre} - {lab.ubicacion}</option>
+        ))}
+      </select>
       <button onClick={handleUpdate}>Actualizar Reserva</button>
       <button onClick={onClose}>Cancelar</button>
     </div>
