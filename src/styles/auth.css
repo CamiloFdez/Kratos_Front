@@ -1,65 +1,191 @@
-.auth-container {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #51cf62;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.auth-container h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.auth-container form {
+:root {
+    --primary-color: #1a5276;
+    --secondary-color: #2980b9;
+    --accent-color: #27ae60;
+    --light-color: #f8f9fa;
+    --dark-color: #2c3e50;
+    --error-color: #e74c3c;
+  }
+  
+  .login-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    overflow: hidden;
+  }
+  
+  .university-brand {
+    flex: 0 0 50%;
+    background: linear-gradient(135deg, var(--primary-color), #154360);
+    color: white;
     display: flex;
     flex-direction: column;
-}
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .university-logo {
+    height: 200px; 
+    width: auto;
+    margin-bottom: 2.5rem;
+  }
+  
+  .university-title {
+    font-size: 2.5rem; 
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    max-width: 80%;
+  }
+  
+  .university-subtitle {
+    font-size: 1.6rem; 
+    opacity: 0.9;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 1.2rem;
+  }
+  
+  .login-form-container {
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-color);
+  }
+  
+  .login-form {
+    width: 80%;
+    max-width: 450px; 
+  }
+  
+  .form-header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .form-header h2 {
+    font-size: 2rem; 
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .form-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+  }
+  
+  .form-group {
+    margin-bottom: 2rem; 
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--dark-color);
+    font-weight: 500;
+    font-size: 1.1rem; 
+  }
+  
+  .form-control {
+    width: 90%;
+    padding: 1rem 1.5rem; 
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 1.1rem; 
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(41, 128, 185, 0.2);
+  }
+  
 
-.auth-container input {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.auth-container button {
-    padding: 10px;
-    background: #646cff;
+  .btn {
+    display: block;
+    padding: 1.1rem; 
+    background-color: var(--secondary-color);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-}
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+  
+  .btn:hover {
+    background-color: #2472a4;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
 
-.auth-container button:hover {
-    background: #535bf2;
-}
-
-.auth-links {
-    margin-top: 15px;
-}
-
-.auth-links p {
-    color: #646cff;
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: 14px;
-}
-
-.auth-links p:hover {
-    color: #535bf2;
-}
-
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
+  .form-links {
+    display: flex;
+    gap: 1rem; 
+    margin-top: 1.5rem;
+  }
+  
+  .form-link {
+    flex: 1; 
+    padding: 1.1rem; 
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  .form-link:hover {
+    background-color: rgba(41, 128, 185, 0.1);
+    transform: translateY(-3px);
+  }
+  
+  @media (max-width: 992px) {
+    .login-container {
+      flex-direction: column;
+      height: auto;
+      min-height: 100vh;
+    }
+    
+    .university-brand, 
+    .login-form-container {
+      flex: 0 0 100%;
+      width: 100%;
+      padding: 3rem 1.5rem;
+    }
+    
+    .university-title {
+      font-size: 2rem;
+    }
+    
+    .university-subtitle {
+      font-size: 1.4rem;
+    }
+    
+    .form-links {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+  }
