@@ -1,13 +1,13 @@
 #root {
   width: 100vw;
-  min-height: 100vh; /* Cambia height por min-height */
+  min-height: 100vh; 
   margin: 0;
   padding: 0;
   text-align: center;
   display: flex;
-  flex-direction: column; /* Hace que el contenido se apile */
+  flex-direction: column; 
   align-items: center;
-  justify-content: flex-start; /* Asegura que el contenido se acomode de arriba hacia abajo */
+  justify-content: flex-start; 
 }
 
 
