@@ -11,7 +11,6 @@
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Reset y estilos base */
 * {
   margin: 0;
   padding: 0;
@@ -20,14 +19,13 @@
 
 body {
   font-family: 'Segoe UI', system-ui, sans-serif;
-  background: #f0f4f8;
+  background: #f2f5f8;
   color: var(--dark);
   height: 100vh;
   overflow: hidden;
   line-height: 1.5;
 }
 
-/* Contenedor principal */
 .dashboard-container {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -47,7 +45,6 @@ body {
   margin-bottom: 0;
 }
 
-/* Layout principal */
 .dashboard-content {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -55,7 +52,6 @@ body {
   height: calc(100vh - 100px);
 }
 
-/* Panel de botones izquierdo */
 .button-panel {
   background: white;
   border-radius: 12px;
@@ -75,7 +71,6 @@ body {
   max-width: 220px;
 }
 
-/* Estilos de botones */
 .dashboard-button {
   padding: 0.9rem 1.2rem;
   background: var(--primary-light);
@@ -123,7 +118,6 @@ body {
   margin-top: auto;
 }
 
-/* Panel del calendario */
 .calendar-panel {
   background: white;
   border-radius: 12px;
@@ -139,12 +133,10 @@ body {
   min-height: 0;
 }
 
-/* Estilos para FullCalendar */
 .fc {
   height: 100% !important;
 }
 
-/* Barra de herramientas superior */
 .fc-toolbar.fc-header-toolbar {
   padding: 1rem 1.2rem !important;
   margin-bottom: 1.5rem !important;
@@ -204,7 +196,6 @@ body {
   font-weight: 600 !important;
 }
 
-/* Eventos del calendario */
 .fc-event {
   background: var(--primary-light) !important;
   border: none !important;
@@ -213,7 +204,6 @@ body {
   border-radius: 4px !important;
 }
 
-/* Modales */
 .modal {
   position: fixed;
   top: 50%;
@@ -299,7 +289,6 @@ body {
   background: #e0e0e0;
 }
 
-/* Efectos de animación */
 @keyframes buttonClick {
   0% { transform: scale(1); }
   50% { transform: scale(0.96); }
@@ -310,7 +299,6 @@ body {
   animation: buttonClick 0.3s ease;
 }
 
-/* Responsive */
 @media (max-width: 1200px) {
   .dashboard-content {
     grid-template-columns: 240px 1fr;
