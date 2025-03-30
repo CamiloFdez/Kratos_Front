@@ -111,27 +111,34 @@ const Dashboard = () => {
       });
   };
 
+  const animateButton = (e) => {
+    e.target.classList.add('button-click-effect');
+    setTimeout(() => {
+      e.target.classList.remove('button-click-effect');
+    }, 400);
+  };
+
   return (
     <div className="dashboard-container">
       <h1>Panel de Reservas</h1>
       <div className="dashboard-content">
         <div className="button-container">
-          <button className="dashboard-button" onClick={() => setShowModifyForm(true)}>
+        <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
             Modifica una reserva
           </button>
-          <button className="dashboard-button" onClick={() => setShowDeleteForm(true)}>
+          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
             Elimina una reserva
           </button>
-          <button className="dashboard-button" onClick={() => setShowForm(true)}>
+          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
             Haz tu reserva
           </button>
-          <button className="dashboard-button" onClick={() => setShowContact(true)}>
+          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
             Contáctanos
           </button>
-          <button className="dashboard-button" onClick={() => setShowLabs(true)}>
+          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
             Laboratorios
           </button>
-          <button className="dashboard-button" onClick={() => navigate("/analytics")}>
+          <button className="dashboard-button" onClick={(e) => {animateButton(e); setShowForm(true);}}>
             Ver Analíticas
           </button>
           <button className="logout-button" onClick={() => navigate("/register")}>
