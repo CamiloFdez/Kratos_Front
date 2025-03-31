@@ -42,7 +42,7 @@ const Register = () => {
             
             console.log('Registro exitoso:', response.data);
             alert('¡Registro exitoso! Ahora puedes iniciar sesión.');
-            navigate('/login');
+            navigate('/');
         } catch (err) {
             console.error('Error en registro:', err);
             setError(err.response?.data?.message || 'Error al registrar. Inténtalo de nuevo.');
