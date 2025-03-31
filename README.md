@@ -91,21 +91,44 @@ npm run build
     - Roger Alexander Rodriguez
 
 ## *Fotos de la app*
-1. Login:
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Login.png)
-2. Registrarse
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Registrarse.png)
-3. Olvide la contraseña:
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Olvideco.png)
-4. Dashboard:
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Dashboard.png)
-5. Nueva reserva:
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Nuevareserva.png)
-6. Contactanos:
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Contactanos.png)
-7. Laboratorios:
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Labs.png)
-8. Ver analiticas:
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Analiticas1.png)
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Analiticas2.png)
-![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/Analiticas3.png)
+
+### 1. Login
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/iniciarSesión.png)
+
+### 2. Registrarse
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/registro.png)
+
+### 3. Olvidé la contraseña
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/recuperarContraseña.png)
+
+### 4. Dashboard Administrador
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/dashboardAdmin.png)
+
+### 5. Dashboard Profesor
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/dashboardProfesor.png)
+
+### 6. Horario vista dia:
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/horarioVistaDia.png)
+
+### 7. Horario vista semanal:
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/horarioVistaSemanal.png)
+
+### 8. Nueva reserva
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/nuevaReserva.png)
+
+### 9. Modificar reserva
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/modificarReserva.png)
+
+### 10. Eliminar reserva
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/eliminarReserva.png)
+
+### 11. Contáctanos
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/infoContacto.png)
+
+### 12. Laboratorios
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/laboratoriosDisponibles.png)
+
+### 13. Ver analíticas
+![imagen](https://github.com/CamiloFdez/Kratos_Front/blob/main/src/assets/analiticas.png)
+
+
